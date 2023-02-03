@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "skipDefaultLibCheck": false,
+        "skipLibCheck": false,
+        "allowJs": true,
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "strictNullChecks": true,
+        "module": "ES6",
+        "target": "ES5",
+        "moduleResolution": "node",
+        "typeRoots": [
+            "./node_modules/@types",
+            "./node_modules/chrome-types"
+        ]
+    },
+    "include": [
+        "./src"
+    ],
+    "exclude": [
+        "./dist"
+    ]
+}
