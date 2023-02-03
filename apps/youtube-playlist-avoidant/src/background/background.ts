@@ -1,6 +1,5 @@
 import "chrome-types";
-
-const MENU_ITEM_ID = "@duong755/youtube-playlist-avoidant"
+import { MENU_ITEM_ID } from "../common/constants";
 
 chrome.contextMenus.create({
     id: MENU_ITEM_ID,
@@ -16,11 +15,14 @@ chrome.contextMenus.create({
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === MENU_ITEM_ID && info.linkUrl) {
-        const { searchParams } = new URL(info.linkUrl);
-        if (searchParams.has("list")) {
-            //
+        const { searchParams, protocol, hostname } = new URL(info.linkUrl);
+        if (tab && tab.id && searchParams.has("v") && searchParams.has("list")) {
+            const newSearchParams = new URLSearchParams({
+                v: searchParams.get("v") ?? "",
+            });
+            chrome.tabs.update(tab.id, {
+                url: `${protocol}//${hostname}/watch?${newSearchParams.toString()}`
+            });
         }
     }
 });
-
-console.log("I am running");
