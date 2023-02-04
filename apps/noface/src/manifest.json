@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Noface",
+    "version": "0.0.1",
+    "description": "Hide Facebook's avatars",
+    "author": "ngo.quang.duong.1100@gmail.com",
+    "content_scripts": [
+        {
+            "matches": ["https://facebook.com/*", "https://www.facebook.com/*"],
+            "js": ["facebook.js"],
+            "runAt": "document_start"
+        },
+        {
+            "matches": ["https://messenger.com/*", "https://www.messenger.com/*"],
+            "js": ["messenger.js"]
+        }
+    ],
+    "incognito": "split",
+    "icons": {}
+}
