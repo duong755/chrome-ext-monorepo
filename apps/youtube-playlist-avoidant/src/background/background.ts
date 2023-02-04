@@ -15,14 +15,6 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
-chrome.storage.onChanged.addListener((changes) => {
-    if ("oneclick" in changes) {
-        const date = new Date();
-        date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365);
-        document.cookie = `oneclick=${changes["oneclick"].newValue}; expires=${date.toUTCString()}; path=/`;
-    }
-});
-
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === MENU_ITEM_ID && info.linkUrl) {
         const { searchParams, protocol, hostname } = new URL(info.linkUrl);

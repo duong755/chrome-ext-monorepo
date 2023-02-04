@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "YouTube Playlist Avoidant",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Avoid open YouTube playlist when click on a video",
     "author": "ngo.quang.duong.1100@gmail.com",
     "background": {
@@ -12,10 +12,7 @@
         "open_in_tab": true
     },
     "permissions": [
-        "contextMenus",
-        "storage",
-        "webRequest",
-        "webRequestBlocking"
+        "contextMenus"
     ],
     "incognito": "split",
     "icons": {}
