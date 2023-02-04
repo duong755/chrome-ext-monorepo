@@ -1,0 +1,27 @@
+name: "youtube-playlist-avoidant"
+
+on:
+  push:
+    tags:
+      - "youtube-playlist-avoidant/v*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+      - name: "Install dependencies"
+        run: |
+          pnpm install --frozen-lockfile
+      - name: "Build extension"
+        run: |
+          pnpm --filter="youtube-playlist-avoidant" run build
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+
+# https://accounts.google.com/o/oauth2/auth?response_type=code&scope=https://www.googleapis.com/auth/chromewebstore&client_id=767700891065-cs6smjo79k0uvve1655463cloii403nj.apps.googleusercontent.com&redirect_uri=urn:ietf:wg:oauth:2.0:oob
