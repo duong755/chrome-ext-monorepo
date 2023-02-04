@@ -7,6 +7,7 @@ prepare:
 	mkdir -p dist
 	cp ./src/manifest.json ./dist/manifest.json
 	cp ./src/options/options.html ./dist/options.html
+	cp assets/* ./dist
 
 dev: prepare
 	./node_modules/.bin/rollup -c --bundleConfigAsCjs --watch
