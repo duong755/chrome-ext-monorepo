@@ -1,51 +1,82 @@
+const selectors = {
+    stories: 'div[aria-label="Stories"]',
+    post: "h3[dir=auto] + div",
+    postOwnerAvatar: "[role=article] svg",
+    messageDropdownMenuAvatar: "[role=dialog] [role=gridcell] [role=img] img",
+    messageDropdownMenuSeen: "[role=dialog] [role=gridcell] svg",
+    complementary: "[role=complementary]",
+    messenger: {
+        headerAvatar: "[aria-label='Chat settings'] [role=img] img",
+        conversationAvatar: "[role=row] [role=gridcell] [aria-hidden=true] img",
+        seenAvatar: "[role=row] [role=gridcell] [id][role=none] img",
+        beginningOfConversationAvatar: "[aria-describedby][aria-label] img",
+        bubble: "[role=img] img"
+    }
+};
+
 function hideFacebookStories() {
-    document.querySelector("div[aria-label=\"Stories\"]")?.remove();
+    document.querySelector(selectors.stories)?.remove();
 }
 
 function hideAvatarsInNewsFeed() {
-    const children = document.querySelector("h3[dir=auto] + div")?.children;
+    const children = document.querySelector(selectors.post)?.children;
     if (children) {
         for (const post of Array.from(children)) {
             post.querySelector("image")?.remove();
         }
     }
 
-    document.querySelectorAll("[role=article] svg")?.forEach((avatar) => {
+    document.querySelectorAll(selectors.postOwnerAvatar)?.forEach((avatar) => {
         avatar.remove();
     });
 }
 
 function hideAvatarsInDropdownMenu() {
-    document.querySelectorAll("[role=dialog] [role=gridcell] [role=img] img")?.forEach((img) => {
-        img.remove();
-    });
-    document.querySelectorAll("[role=dialog] [role=gridcell] svg")?.forEach((svg) => {
-        svg.remove();
-    });
+    document
+        .querySelectorAll(selectors.messageDropdownMenuAvatar)
+        ?.forEach((img) => {
+            img.remove();
+        });
+    document
+        .querySelectorAll(selectors.messageDropdownMenuSeen)
+        ?.forEach((svg) => {
+            svg.remove();
+        });
 }
 
 function hideAvatarsInContacts() {
-    document.querySelector("[role=complementary]")?.querySelectorAll("li svg")?.forEach((svg) => {
-        svg.remove();
-    });
+    document
+        .querySelector(selectors.complementary)
+        ?.querySelectorAll("li svg")
+        ?.forEach((svg) => {
+            svg.remove();
+        });
 }
 
 function hideAvatarsInMessenger() {
-    document.querySelectorAll("[aria-label='Chat settings'] [role=img] img")?.forEach(img => {
-        img.setAttribute("src", "");
-    });
-    document.querySelectorAll("[role=row] [role=gridcell] [aria-hidden=true] img")?.forEach((img) => {
+    document
+        .querySelectorAll(selectors.messenger.headerAvatar)
+        ?.forEach((img) => {
+            img.setAttribute("src", "");
+        });
+    document
+        .querySelectorAll(selectors.messenger.conversationAvatar)
+        ?.forEach((img) => {
+            img.remove();
+        });
+    document
+        .querySelectorAll(selectors.messenger.seenAvatar)
+        ?.forEach((img) => {
+            img.remove();
+        });
+    document
+        .querySelectorAll(selectors.messenger.beginningOfConversationAvatar)
+        ?.forEach((img) => {
+            img.remove();
+        });
+    document.querySelectorAll(selectors.messenger.bubble)?.forEach((img) => {
         img.remove();
     });
-    document.querySelectorAll("[role=row] [role=gridcell] [id][role=none] img")?.forEach((img) => {
-        img.remove();
-    });
-    document.querySelectorAll("[aria-describedby][aria-label] img")?.forEach((img) => {
-        img.remove();
-    });
-    document.querySelectorAll("[role=img] img")?.forEach((img) => {
-        img.remove();
-    })
 }
 
 setInterval(() => {

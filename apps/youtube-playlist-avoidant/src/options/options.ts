@@ -1,6 +1,6 @@
 import { h, Component, render } from "preact";
 import htm from "htm";
-import {css, keyframes} from "@emotion/css";
+import { css, keyframes } from "@emotion/css";
 
 const html = htm.bind(h);
 
@@ -17,7 +17,7 @@ const fadeInThenOut = keyframes`
 `;
 const fadeInThenOutClassName = css`
     animation: ${fadeInThenOut} 3s ease-in-out;
-`
+`;
 
 interface AppState {
     oneclick?: boolean;
@@ -34,7 +34,7 @@ class App extends Component<{}, AppState> {
 
     async componentDidMount(): Promise<void> {
         Object.assign(document.body.style, {
-            backgroundColor: "#f5f5f0"
+            backgroundColor: "#f5f5f0",
         });
         await this.initializeSettings();
     }
@@ -52,11 +52,11 @@ class App extends Component<{}, AppState> {
         const input = event.target as HTMLInputElement;
         if (input.type === "checkbox") {
             this.setState({
-                [fieldName]: input.checked
+                [fieldName]: input.checked,
             });
         } else {
             this.setState({
-                [fieldName]: input.value
+                [fieldName]: input.value,
             });
         }
     }
@@ -72,19 +72,41 @@ class App extends Component<{}, AppState> {
     render() {
         return html`
             <form onsubmit=${this.handleSubmit}>
-                <div style=${{ maxWidth: "400px", margin: "auto", padding: "20px", backgroundColor: "#ffffff" }}>
+                <div
+                    style=${{
+                        maxWidth: "400px",
+                        margin: "auto",
+                        padding: "20px",
+                        backgroundColor: "#ffffff",
+                    }}
+                >
                     <h1>YouTube Playlist Avoidant (pending)</h1>
-                    <div style=${{ display: "flex" , flexDirection: "row" , alignItems: "center" }}
-                        title="Open video in playlist's thumbnail without right-click">
+                    <div
+                        style=${{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                        }}
+                        title="Open video in playlist's thumbnail without right-click"
+                    >
                         <label for="oneclick">One click</label>
-                        <input type="checkbox" name="oneclick" id="oneclick" checked=${this.state.oneclick} onchange=${(event:
-                            InputEvent) => this.handleChange("oneclick", event)}
+                        <input
+                            type="checkbox"
+                            name="oneclick"
+                            id="oneclick"
+                            checked=${this.state.oneclick}
+                            onchange=${(event: InputEvent) =>
+                                this.handleChange("oneclick", event)}
                         />
                     </div>
                     <br />
                     <div>
                         <button type="submit">Save</button>
-                        <span style="padding-left: 15px;font-style: italic;opacity: 0;" id="success-indicator">OK</span>
+                        <span
+                            style="padding-left: 15px;font-style: italic;opacity: 0;"
+                            id="success-indicator"
+                            >OK</span
+                        >
                     </div>
                 </div>
             </form>

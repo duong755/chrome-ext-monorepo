@@ -1,7 +1,7 @@
 {
-  "name": "youtube-playlist-avoidant",
+  "name": "noface",
   "version": "0.0.0",
-  "description": "Avoid open YouTube playlist when click on a video",
+  "description": "Hide avatars",
   "main": "index.js",
   "scripts": {
     "dev": "make dev",
