@@ -10,8 +10,9 @@ const selectors = {
         conversationAvatar: "[role=row] [role=gridcell] [aria-hidden=true] img",
         seenAvatar: "[role=row] [role=gridcell] [id][role=none] img",
         beginningOfConversationAvatar: "[aria-describedby][aria-label] img",
-        bubble: "[role=img] img"
-    }
+        bubble: "[role=img] img",
+        typingAvatar: "[role=none] img",
+    },
 };
 
 function hideFacebookStories() {
@@ -77,6 +78,11 @@ function hideAvatarsInMessenger() {
     document.querySelectorAll(selectors.messenger.bubble)?.forEach((img) => {
         img.remove();
     });
+    document
+        .querySelectorAll(selectors.messenger.typingAvatar)
+        ?.forEach((img) => {
+            img.remove();
+        });
 }
 
 setInterval(() => {
