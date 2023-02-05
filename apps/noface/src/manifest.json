@@ -12,7 +12,8 @@
         },
         {
             "matches": ["https://messenger.com/*", "https://www.messenger.com/*"],
-            "js": ["messenger.js"]
+            "js": ["messenger.js"],
+            "runAt": "document_start"
         }
     ],
     "incognito": "split",

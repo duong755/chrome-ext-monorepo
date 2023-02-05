@@ -12,7 +12,6 @@ importers:
 
   apps/noface:
     specifiers:
-      '@rollup/plugin-alias': ^4.0.3
       '@rollup/plugin-commonjs': ^24.0.1
       '@rollup/plugin-node-resolve': ^15.0.1
       '@rollup/plugin-typescript': ^11.0.0
@@ -21,7 +20,6 @@ importers:
       tslib: ^2.5.0
       typescript: ^4.9.5
     devDependencies:
-      '@rollup/plugin-alias': 4.0.3_rollup@3.12.1
       '@rollup/plugin-commonjs': 24.0.1_rollup@3.12.1
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.12.1
       '@rollup/plugin-typescript': 11.0.0_dacjhltxvpiymvk442t6rtzddq
@@ -33,7 +31,6 @@ importers:
   apps/youtube-playlist-avoidant:
     specifiers:
       '@emotion/css': ^11.10.5
-      '@rollup/plugin-alias': ^4.0.3
       '@rollup/plugin-commonjs': ^24.0.1
       '@rollup/plugin-node-resolve': ^15.0.1
       '@rollup/plugin-replace': ^5.0.2
@@ -49,7 +46,6 @@ importers:
       htm: 3.1.1
       preact: 10.11.3
     devDependencies:
-      '@rollup/plugin-alias': 4.0.3_rollup@3.12.1
       '@rollup/plugin-commonjs': 24.0.1_rollup@3.12.1
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.12.1
       '@rollup/plugin-replace': 5.0.2_rollup@3.12.1
@@ -401,19 +397,6 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: false
-
-  /@rollup/plugin-alias/4.0.3_rollup@3.12.1:
-    resolution: {integrity: sha512-ZuDWE1q4PQDhvm/zc5Prun8sBpLJy41DMptYrS6MhAy9s9kL/doN1613BWfEchGVfKxzliJ3BjbOPizXX38DbQ==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-    dependencies:
-      rollup: 3.12.1
-      slash: 4.0.0
-    dev: true
 
   /@rollup/plugin-commonjs/24.0.1_rollup@3.12.1:
     resolution: {integrity: sha512-15LsiWRZk4eOGqvrJyu3z3DaBu5BhXIMeWnijSRvd8irrrg9SHpQ1pH+BUK4H6Z9wL9yOxZJMTLU+Au86XHxow==}
@@ -886,11 +869,6 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
     dev: false
-
-  /slash/4.0.0:
-    resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
-    engines: {node: '>=12'}
-    dev: true
 
   /source-map/0.5.7:
     resolution: {integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==}
