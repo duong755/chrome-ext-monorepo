@@ -1,8 +1,8 @@
-import { defineConfig } from 'rollup';
+import { defineConfig } from "rollup";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import commonjs from '@rollup/plugin-commonjs';
+import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import replace from '@rollup/plugin-replace';
+import replace from "@rollup/plugin-replace";
 
 const plugins = [
     nodeResolve(),
@@ -11,7 +11,7 @@ const plugins = [
     replace({
         preventAssignment: true,
         values: {
-            'process.env.NODE_ENV': JSON.stringify('production')
+            "process.env.NODE_ENV": JSON.stringify("production")
         }
     }),
 ];
